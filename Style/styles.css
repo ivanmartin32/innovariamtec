@@ -40,6 +40,12 @@ header img {
     display: block;
 }
 
+/* botón hamburguesa (oculto por defecto, se muestra en <=960px) */
+.hamburger {
+    display: none;
+}
+
+
 nav ul {
     display: flex;
     list-style: none;
@@ -65,6 +71,67 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #60a0b2;
+}
+
+/* Dropdown (submenu) */
+.has-submenu {
+    position: relative;
+}
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #00345b;
+    border-radius: 6px;
+    padding: 0.25rem 0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    z-index: 1000;
+}
+.has-submenu .submenu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.submenu-toggle:after {
+    content: '▾';
+    margin-left: 6px;
+    font-size: 0.85rem;
+}
+
+/* Mobile: submenu inside hamburger menu */
+@media (max-width: 960px) {
+    nav#main-nav .submenu {
+        position: static;
+        display: none;
+        padding-left: 0.5rem;
+        background: transparent;
+        box-shadow: none;
+    }
+    nav#main-nav .submenu.open {
+        display: block;
+    }
+    .submenu-toggle {
+        width: 100%;
+        text-align: left;
+    }
+    nav#main-nav .submenu li a {
+        padding-left: 1.25rem;
+    }
 }
 
 select {
@@ -344,6 +411,8 @@ footer {
     header {
         justify-content: center;
         text-align: center;
+        position: relative;
+        padding: 12px 0;
     }
 
     header img {
@@ -352,8 +421,84 @@ footer {
         order: -1;
     }
 
+    /* mostrar el botón hamburguesa en este punto */
+    .hamburger {
+        display: inline-flex;
+        background: transparent;
+        border: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 36px;
+        height: 24px;
+        padding: 4px;
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        z-index: 1000;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Menú móvil (oculto por defecto, aparece al abrir) */
+    nav#main-nav {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        display: none;
+        background: #00345b;
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        z-index: 999;
+    }
+
+    nav#main-nav.open {
+        display: block;
+    }
+
+    nav#main-nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.25rem 0;
+    }
+
+    nav#main-nav li a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav#main-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Aún funcionando en pantallas pequeñas: */
     header nav {
-        width: 100%;
+        width: auto;
     }
 
     nav ul {
@@ -370,16 +515,34 @@ footer {
 
     .conentedor-articulos {
         display: grid;
+        grid-template-columns: 1fr;
         max-width: 75%;
         margin: 0 auto;
         align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
     }
 
     .conentedor-articulo {
-        margin: 1rem auto;
+        width: 100%;
+        min-width: 0;
+        margin: 1rem 0;
         align-items: center;
         text-align: center;
         gap: 1rem;
+    }
+
+    /* Apilar también el contenido de servicios en 960px */
+    .contenido-servicio {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .contenido-video,
+    .youtube-iframe {
+        height: auto;
+        min-height: 150px;
     }
 
     p {
@@ -389,8 +552,97 @@ footer {
     .vermas {
         margin: 2% 30%;
     }
-    
+    .servicios {
+        padding: 1rem;
+    }
+    .solicitud-servicio {
+        padding: 1rem;
+        
+    }
+
 }
+
+@media (max-width: 480px) {
+    /* Header: apilar logo y navegación */
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header .logo-container,
+    header img {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+    }
+
+    /* Artículos: una columna */
+    .conentedor-articulos {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .conentedor-articulo {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        text-align: left;
+        padding: .5rem;
+    }
+
+    .conentedor-articulo h4 {
+        text-align: left;
+    }
+
+    /* Sección de servicios: apilar video y texto */
+    .contenido-servicio {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        padding: 0;
+    }
+
+    .contenido-video,
+    .youtube-iframe {
+        height: auto;
+        min-height: 150px;
+    }
+
+    .parrafo-servicio {
+        text-align: left;
+    }
+
+    /* Botones y enlaces: ocupar ancho disponible */
+    .vermas,
+    .solicitar {
+        margin: 1rem auto;
+        width: 90%;
+        text-align: center;
+    }
+
+    /* Footer: apilar elementos */
+    .contenedor-footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem !important;
+    }
+
+    .parrafo-footer {
+        text-align: center;
+    }
+}
+
 
 @media (max-width: 480px) {
     header {

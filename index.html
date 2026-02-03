@@ -14,22 +14,27 @@
         <div class = "logo-container">
             <img src="https://drive.google.com/thumbnail?id=1QjeAs2tuJMPpe3AufVHzTo_6rmWZkhXS&sz=w1000" alt="logo">
         </div>
-        <nav>
+        <button class="hamburger" aria-expanded="false" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav" role="navigation">
             <ul>
                 <li><a href="#Novedades">Novedades</a></li>
-                <li>
-                    <select>
-                        <option value="Servicios">Servicios</option>
-                        <option value="Asesoramiento">Asesoramiento</option>
-                        <option value="Soporte Tecnico">Soporte Técnico</option>
-                        <option value="Redes">Redes</option>
-                        <option value="Camaras">Cámaras</option>
-                        <option value="Desarrollo Web">Desarrollo Web</option>
-                    </select>
+                <li class="has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false" aria-controls="services-submenu">Servicios</button>
+                    <ul class="submenu" id="services-submenu" role="menu">
+                        <li><a href="#Asesoramiento">Asesoramiento</a></li>
+                        <li><a href="#SoporteTecnico">Soporte Técnico</a></li>
+                        <li><a href="#Redes">Redes</a></li>
+                        <li><a href="#Camaras">Cámaras</a></li>
+                        <li><a href="#DesarrolloWeb">Desarrollo Web</a></li>
+                    </ul>
                 </li>
-                <li><a href="#">Cursos</a></li>
-                <li><a href="#">Quiénes Somos</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#Cursos">Cursos</a></li>
+                <li><a href="#QuienesSomos">Quiénes Somos</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -96,11 +101,11 @@
         </article>
         <hr>
         <section>
-            <div class="servicios">
+            <div class="servicios" id="Servicios">
                 <h2>Servicios</h2>
                 <img src="https://lh3.googleusercontent.com/u/0/d/1Hc0E15CvFv1XqySg3bJ-2tlB_oTwgdXs" alt="Servicios">
             </div>
-            <div class="solicitud-servicio">
+            <div class="solicitud-servicio" id="Asesoramiento">
                 <h2>Asesoramiento</h2>
                 <div class="contenido-servicio">
                     <div class="contenido-video">
@@ -119,7 +124,7 @@
                 </div>
                 <a href="#" class="solicitar">Solicitar Asesoramiento</a>
             </div>
-            <div class="solicitud-servicio">
+            <div class="solicitud-servicio" id="SoporteTecnico">
                 <h2>Soporte Técnico</h2>
                 <div class="contenido-servicio">
                     <p class="parrafo-servicio">Nuestro equipo de soporte técnico está disponible para ayudarte con
@@ -139,7 +144,7 @@
                 <a href="#" class="solicitar">Solicitar Soporte Técnico</a>
             </div>
             </div>
-            <div class="solicitud-servicio">
+            <div class="solicitud-servicio" id="Redes">
                 <h2>Redes</h2>
                 <div class="contenido-servicio">
                     <div class="contenido-video">
@@ -158,7 +163,7 @@
                 </div>
                 <a href="#" class="solicitar">Solicitar Soporte a Redes</a>
             </div>
-            <div class="solicitud-servicio">
+            <div class="solicitud-servicio" id="Camaras">
                 <h2>Cámaras</h2>
                 <div class="contenido-servicio">
                     <p class="parrafo-servicio">Proveemos e instalamos sistemas de cámaras de seguridad de alta calidad
@@ -177,7 +182,7 @@
                 </div>
                 <a href="#" class="solicitar">Solicitar Soporte a Cámaras</a>
             </div>
-            <div class="solicitud-servicio">
+            <div class="solicitud-servicio" id="DesarrolloWeb">
                 <h2>Desarrollo Web</h2>
                 <div class="contenido-servicio">
                     <div class="contenido-video">
@@ -223,15 +228,15 @@
                     alt="logo">
             </div>
             <div class="contenedor-redes">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/profile.php?id=61574778672258" target="_blank" rel="noopener noreferrer">
                     <img class="redes" src="https://lh3.googleusercontent.com/u/0/d/1y1qv-tv4a6dW4Mc8b8K-GLlExpLhBGaT"
                         alt="">
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/innovar.iamtec/" target="_blank" rel="noopener noreferrer">
                     <img class="redes" src="https://lh3.googleusercontent.com/u/0/d/1fIVM0VS123PqGJxSbieJWjSk9B7ijyDR"
                         alt="">
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5492358451742" target="_blank" rel="noopener noreferrer">
                     <img class="redes" src="https://lh3.googleusercontent.com/u/0/d/1NQrledCXAzX6u7B_D2k3QsnCanVOxrcx"
                         alt="">
                 </a>
@@ -241,5 +246,71 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.getElementById('main-nav');
+            if (!hamburger || !nav) return;
+
+            function closeAllSubmenus() {
+                nav.querySelectorAll('.submenu').forEach(function (s) {
+                    s.classList.remove('open');
+                });
+                nav.querySelectorAll('.submenu-toggle').forEach(function (b) {
+                    b.setAttribute('aria-expanded', 'false');
+                });
+            }
+
+            hamburger.addEventListener('click', function (e) {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                this.classList.toggle('open');
+                nav.classList.toggle('open');
+                if (!nav.classList.contains('open')) closeAllSubmenus();
+            });
+
+            // toggles para submenu
+            nav.querySelectorAll('.submenu-toggle').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const submenuId = btn.getAttribute('aria-controls');
+                    const submenu = document.getElementById(submenuId);
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    if (submenu) submenu.classList.toggle('open');
+                });
+            });
+
+            // cerrar al hacer click fuera
+            document.addEventListener('click', function (e) {
+                if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                    nav.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    closeAllSubmenus();
+                }
+            });
+
+            // cerrar al hacer click en un enlace
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    closeAllSubmenus();
+                });
+            });
+
+            // cerrar con Esc
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    nav.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    closeAllSubmenus();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
