@@ -103,9 +103,10 @@ nav ul li a:hover {
     background: transparent;
     border: none;
     color: #fff;
-    padding: 8px 12px;
+    padding: 0px 10px;
     cursor: pointer;
     font-weight: bold;
+    font-size: large;
 }
 .submenu-toggle:after {
     content: '▾';
@@ -589,36 +590,44 @@ footer {
         grid-template-columns: 1fr;
         max-width: 100%;
         margin: 0 auto;
+        align-items: center;
         gap: 1rem;
-        padding: 1rem;
+        padding: 0 1rem;
     }
 
     .conentedor-articulo {
         width: 100%;
         min-width: 0;
-        margin: 0;
-        text-align: left;
-        padding: .5rem;
+        margin: 1rem 0;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
     }
 
     .conentedor-articulo h4 {
-        text-align: left;
+        text-align: center;
     }
 
     /* Sección de servicios: apilar video y texto */
     .contenido-servicio {
         flex-direction: column;
         gap: 1rem;
-        align-items: stretch;
+        align-items: center;
         padding: 0;
+    }
+    #etiqueta_asesoramiento, #etiqueta_soporte, #etiqueta_redes, #etiqueta_camaras, #etiqueta_desarrollo_web, #etiqueta_impresion_3d, #etiqueta_servicios {
+        font-size: 2rem;
     }
 
     .contenido-video,
     .youtube-iframe {
-        height: auto;
-        min-height: 150px;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+        border: none;
+        overflow: hidden;
     }
-
     .parrafo-servicio {
         text-align: left;
     }
@@ -626,8 +635,7 @@ footer {
     /* Botones y enlaces: ocupar ancho disponible */
     .vermas,
     .solicitar {
-        margin: 1rem auto;
-        width: 90%;
+        margin: 2% 5%;
         text-align: center;
     }
 
@@ -639,54 +647,11 @@ footer {
     }
 
     .parrafo-footer {
-        text-align: center;
+        text-align: center !important;
+        align-items: center !important;
     }
-}
-
-
-@media (max-width: 480px) {
-    header {
-        padding: 15px;
-        gap: 10px;
-    }
-
-    nav ul {
-        gap: 10px;
-        font-size: 12px;
-    }
-
-    nav ul li a {
-        padding: 6px 8px;
-    }
-
-    select {
-        font-size: 16px;
-        padding: 6px 8px;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    .conentedor-articulos {
-        display: grid;
-        max-width: 100%;
-        margin: 0 auto;
-        align-items: center;
-    }
-
-    .conentedor-articulo {
-        margin: 1rem auto;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .vermas {
-        margin: 2% 30%;
+    #parrafo-footer {
+        font-size: 12px !important;
+        text-align: center !important;
     }
 }
