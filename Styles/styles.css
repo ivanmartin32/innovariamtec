@@ -1,0 +1,665 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos de Header y Navegación */
+
+#header.container {
+    min-width: 0;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #00345b;
+    padding: 10px 0 !important;
+}
+
+header .logo-container {
+    width: 100px;
+    width: 100px;
+    height: auto !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* botón hamburguesa (oculto por defecto, se muestra en <=960px) */
+.hamburger {
+    display: none;
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 0 !important;
+}
+
+header nav {
+    height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #60a0b2;
+}
+
+/* Dropdown (submenu) */
+.has-submenu {
+    position: relative;
+}
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #00345b;
+    border-radius: 6px;
+    padding: 0.25rem 0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    z-index: 1000;
+}
+.has-submenu .submenu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 0px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+}
+.submenu-toggle:after {
+    content: '▾';
+    margin-left: 6px;
+    font-size: 0.85rem;
+}
+
+/* Mobile: submenu inside hamburger menu */
+@media (max-width: 960px) {
+    nav#main-nav .submenu {
+        position: static;
+        display: none;
+        padding-left: 0.5rem;
+        background: transparent;
+        box-shadow: none;
+    }
+    nav#main-nav .submenu.open {
+        display: block;
+    }
+    .submenu-toggle {
+        width: 100%;
+        text-align: left;
+    }
+    nav#main-nav .submenu li a {
+        padding-left: 1.25rem;
+    }
+}
+
+select {
+    font-weight: bold;
+    background-color: #00345b;
+    color: white;
+    border: 1px solid #60a0b2;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+select:hover {
+    background-color: #60a0b2;
+}
+
+/* Estilos de Secciones Principales iframe y articule*/
+
+iframe {
+    position: absolute;
+    width: 100%;
+    border: none;
+    object-fit: cover;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100% + 120px);
+    pointer-events: none;
+}
+
+h1 {
+    position: relative;
+    font-size: clamp(48px, 10vw, 150px);
+    text-align: center;
+    color: #f9f9f9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+h3 {
+    position: relative;
+    text-align: center;
+    color: #f9f9f9;
+    font-size: clamp(20px, 5vw, 30px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #00345b;
+    margin: 2rem 1rem;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: #00345b;
+}
+
+div {
+    position: relative;
+    width: 100%;
+    padding-bottom: 15%;
+    overflow: hidden;
+}
+
+#Novedades {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.conentedor-articulos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    gap: 1rem;
+}
+
+.conentedor-articulo {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.726);
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s ease;
+    padding-bottom: 0%;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.conentedor-articulo:hover {
+    transform: scale(1.03);
+}
+
+.conentedor-articulo h4 {
+    color: #00345b;
+    margin: .5rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.conentedor-articulo p {
+    padding: .5rem .5rem .5rem;
+    color: #333;
+
+}
+
+h4 p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-size: .8rem;
+}
+
+.vermas {
+    flex-basis: 100%;
+    margin: 2% 40%;
+    padding: .5rem .5rem;
+    background-color: #00345b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.vermas:hover {
+    background-color: #60a0b2;
+}
+
+/* Estilos de Sección de Servicios */
+
+section h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: #00345b;
+}
+
+.servicios {
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+section img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.solicitud-servicio {
+    display: grid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 2rem 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.solicitud-servicio:hover {
+    transform: scale(1.02);
+    background-color: #caf4ff;
+}
+
+.contenido-servicio {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.contenido-video {
+    height: 280px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.youtube-iframe {
+    width: 100%;
+    border: none;
+    object-fit: cover;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100% + 120px);
+    pointer-events: none;
+}
+
+.parrafo-servicio {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    text-align: justify;
+}
+
+.solicitar {
+    flex-basis: 100%;
+    margin: 2% 40%;
+    padding: .5rem .5rem;
+    background-color: #00345b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilos de Footer */
+
+footer {
+    background-color: #00345b;
+    color: white;
+    padding: 20px 0;
+}
+
+.contenedor-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 5% !important;
+}
+
+.contenedor-logo {
+    flex: 1;
+    text-align: center;
+    padding-bottom: 0 !important;
+}
+
+.contenedor-redes {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 0 !important;
+}
+
+.redes {
+    width: 100px;
+}
+
+.parrafo-footer {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 0 !important;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.redes {
+    width: 40px;
+    height: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+    header {
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        padding: 12px 0;
+    }
+
+    header img {
+        width: 100%;
+        max-width: 200px;
+        order: -1;
+    }
+
+    /* mostrar el botón hamburguesa en este punto */
+    .hamburger {
+        display: inline-flex;
+        background: transparent;
+        border: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 36px;
+        height: 24px;
+        padding: 4px;
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        z-index: 1000;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Menú móvil (oculto por defecto, aparece al abrir) */
+    nav#main-nav {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        display: none;
+        background: #00345b;
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        z-index: 999;
+    }
+
+    nav#main-nav.open {
+        display: block;
+    }
+
+    nav#main-nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.25rem 0;
+    }
+
+    nav#main-nav li a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav#main-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Aún funcionando en pantallas pequeñas: */
+    header nav {
+        width: auto;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    nav ul li {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .conentedor-articulos {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 75%;
+        margin: 0 auto;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .conentedor-articulo {
+        width: 100%;
+        min-width: 0;
+        margin: 1rem 0;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    /* Apilar también el contenido de servicios en 960px */
+    .contenido-servicio {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .contenido-video,
+    .youtube-iframe {
+        height: auto;
+        min-height: 150px;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .vermas {
+        margin: 2% 30%;
+    }
+    .servicios {
+        padding: 1rem;
+    }
+    .solicitud-servicio {
+        padding: 1rem;
+        
+    }
+
+}
+
+@media (max-width: 480px) {
+    /* Header: apilar logo y navegación */
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header .logo-container,
+    header img {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+    }
+    .submenu-toggle {
+        text-align:  center;
+        font-size: medium;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+    }
+
+    /* Artículos: una columna */
+    .conentedor-articulos {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .conentedor-articulo {
+        width: 100%;
+        min-width: 0;
+        margin: 1rem 0;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .conentedor-articulo h4 {
+        text-align: center;
+    }
+
+    /* Sección de servicios: apilar video y texto */
+    .contenido-servicio {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        padding: 0;
+    }
+    #etiqueta_asesoramiento, #etiqueta_soporte, #etiqueta_redes, #etiqueta_camaras, #etiqueta_desarrollo_web, #etiqueta_impresion_3d, #etiqueta_servicios {
+        font-size: 2rem;
+    }
+
+    .contenido-video,
+    .youtube-iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+        border: none;
+        overflow: hidden;
+    }
+    .parrafo-servicio {
+        text-align: left;
+    }
+
+    /* Botones y enlaces: ocupar ancho disponible */
+    .vermas,
+    .solicitar {
+        margin: 2% 5%;
+        text-align: center;
+    }
+
+    /* Footer: apilar elementos */
+    .contenedor-footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem !important;
+    }
+
+    .parrafo-footer {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    #parrafo-footer {
+        font-size: 12px !important;
+        text-align: center !important;
+    }
+}
