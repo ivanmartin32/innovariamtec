@@ -16,11 +16,10 @@ html {
 
 /* Estilos de Header y Navegación */
 
-#header.container {
-    min-width: 0;
-}
-
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -637,7 +636,7 @@ footer {
         overflow: hidden;
     }
     .parrafo-servicio {
-        text-align: left;
+        text-align: justify;
     }
 
     /* Botones y enlaces: ocupar ancho disponible */
