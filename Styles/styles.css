@@ -229,6 +229,8 @@ div {
     min-width: 250px;
     transition: transform 0.3s ease;
     padding-bottom: 0%;
+    display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -252,7 +254,7 @@ img {
 .conentedor-articulo p {
     padding: .5rem .5rem .5rem;
     color: #333;
-
+    flex-grow: 1;
 }
 
 h4 p {
