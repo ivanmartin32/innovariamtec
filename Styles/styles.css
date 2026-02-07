@@ -80,6 +80,7 @@ nav ul li a:hover {
 .has-submenu {
     position: relative;
 }
+
 .has-submenu .submenu {
     display: none;
     position: absolute;
@@ -89,15 +90,17 @@ nav ul li a:hover {
     border-radius: 6px;
     padding: 0.25rem 0;
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     z-index: 1000;
 }
+
 .has-submenu .submenu li a {
     display: block;
     padding: 0.5rem 1rem;
     color: #fff;
     text-decoration: none;
 }
+
 .has-submenu:hover .submenu {
     display: block;
 }
@@ -111,6 +114,7 @@ nav ul li a:hover {
     font-weight: bold;
     font-size: large;
 }
+
 .submenu-toggle:after {
     content: '▾';
     margin-left: 6px;
@@ -126,13 +130,16 @@ nav ul li a:hover {
         background: transparent;
         box-shadow: none;
     }
+
     nav#main-nav .submenu.open {
         display: block;
     }
+
     .submenu-toggle {
         width: 100%;
         text-align: left;
     }
+
     nav#main-nav .submenu li a {
         padding-left: 1.25rem;
     }
@@ -164,7 +171,7 @@ iframe {
     top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    height: calc(100% + 120px);
+    height: calc(100% + 160px);
     pointer-events: none;
 }
 
@@ -475,7 +482,7 @@ footer {
         border-radius: 8px;
         overflow: hidden;
         min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         z-index: 999;
     }
 
@@ -495,7 +502,7 @@ footer {
         padding: 0.75rem 1rem;
         color: #fff;
         text-decoration: none;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     nav#main-nav li:last-child a {
@@ -558,17 +565,33 @@ footer {
     .vermas {
         margin: 2% 30%;
     }
+
     .servicios {
         padding: 1rem;
     }
+
     .solicitud-servicio {
         padding: 1rem;
-        
+
     }
 
 }
+@media (max-width: 768px) {
+    iframe {
+    position: absolute;
+    width: 100%;
+    border: none;
+    object-fit: cover;
+    top: -79px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100% + 160px);
+    pointer-events: none;
+    }
+}
 
 @media (max-width: 480px) {
+
     /* Header: apilar logo y navegación */
     header {
         flex-direction: column;
@@ -582,8 +605,9 @@ footer {
         width: 100%;
         height: auto;
     }
+
     .submenu-toggle {
-        text-align:  center;
+        text-align: center;
         font-size: medium;
     }
 
@@ -624,19 +648,28 @@ footer {
         align-items: center;
         padding: 0;
     }
-    #etiqueta_asesoramiento, #etiqueta_soporte, #etiqueta_redes, #etiqueta_camaras, #etiqueta_desarrollo_web, #etiqueta_impresion_3d, #etiqueta_servicios {
+
+    #etiqueta_asesoramiento,
+    #etiqueta_soporte,
+    #etiqueta_redes,
+    #etiqueta_camaras,
+    #etiqueta_desarrollo_web,
+    #etiqueta_impresion_3d,
+    #etiqueta_servicios {
         font-size: 2rem;
     }
 
-    .contenido-video,
-    .youtube-iframe {
+    iframe {
         width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        display: block;
         border: none;
-        overflow: hidden;
+        object-fit: cover;
+        top: -79px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: calc(100% + 160px);
+        pointer-events: none;
     }
+
     .parrafo-servicio {
         text-align: justify;
     }
@@ -659,6 +692,7 @@ footer {
         text-align: center !important;
         align-items: center !important;
     }
+
     #parrafo-footer {
         font-size: 12px !important;
         text-align: center !important;
